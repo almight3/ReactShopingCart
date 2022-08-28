@@ -1,8 +1,15 @@
-import React from 'react'
-
+import React,{useContext} from 'react'
+import { Context } from "../context/ContextReducer"
+import SingleComponent from '../component/SingleComponent'
+import './Page.css'
 function Home() {
+const {state,cartDispatch} = useContext(Context)  
   return (
-    <div>Home</div>
+    <div className="home-product-container">
+        {state.products.map((product)=>(
+          <SingleComponent product={product} state={state} dispatch={cartDispatch} />
+        ))}
+    </div>
   )
 }
 
