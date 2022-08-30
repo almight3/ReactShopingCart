@@ -1,0 +1,27 @@
+.home-product-container{
+ display: flex;
+ flex-direction:row;
+ flex-wrap: wrap;
+ justify-content: center; 
+}
+.cart-product-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.cart-calculator{
+    height: 80vh;
+    width:25vw;
+    display:flex;
+    flex-direction: column;
+    justify-content:start;
+    border: 2px solid grey;
+    margin: 1rem;
+
+}
+.cart-product{
+    height: 80vh;
+    width:70vw;
+    margin: 1rem;
+}

@@ -1,5 +1,5 @@
 import React,{useContext} from 'react'
-import { Context } from "../context/ContextReducer"
+import {Context} from "../context/ProductContext"
 import SingleComponent from '../component/SingleComponent'
 import './Page.css'
 function Home() {

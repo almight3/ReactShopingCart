@@ -1,13 +1,35 @@
-export const cartReducer = (state,action)=>{
-    switch(action.type){
-        case "ADD_PRODUCTS":
-            return {...state,products:action.payload}
-        case "ADD_TO_CART":
-            return {...state,cart:[...state.cart,{...action.payload,qty:1}]}    
-        case "REMOVE_FROM_CART":
-            return {...state,cart:state.cart.fillter((c)=>c.id!=action.payload.id)}   
-        default:
-            return state    
+import React,{ useState,useReducer,useEffect } from 'react'
+import {cartReducer} from '../Reducer/ProductReducer'
+import axios from 'axios';
 
-    }
+
+export const Context = React.createContext();
+
+function ProductContext({children}) {
+ 
+ const [state,cartDispatch] = useReducer(cartReducer,{
+   cart:[],
+   products:[]
+ })  
+
+ const fetchProduct = async()=>{
+   const productData = await axios.get('https://fakestoreapi.com/products');
+   cartDispatch({
+      type:"ADD_PRODUCTS",
+      payload:productData.data
+   })
+   console.log(productData.data)
+ }
+ useEffect(()=>{
+  fetchProduct()
+ },[]) 
+ console.log(state)
+
+  return (
+    <Context.Provider value={{state,cartDispatch}}>
+        {children}
+    </Context.Provider>
+  )
 }
+
+export default ProductContext
