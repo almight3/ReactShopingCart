@@ -30,7 +30,7 @@ function ProductContext({children}) {
  console.log(state)
 
   return (
-    <Context.Provider value={{state,cartDispatch}}>
+    <Context.Provider value={{state,cartDispatch,filterState,filterDispatch}}>
         {children}
     </Context.Provider>
   )
