@@ -29,12 +29,17 @@ function Filter() {
    <span>
    <label>Search by Category</label>
       <select name="cars" id="cars" onChange={(e)=>handelCategory(e.target.value)}>
-        <option value="mens">Mens</option>
-        <option value="women">Womens</option>
+        <option value="men's clothing">Mens</option>
+        <option value="women's clothing">Womens</option>
         <option value="jewelery">Jewelery</option>
         <option value="electronics">Electronics</option>
       </select>
    </span>
+   <label onClick={()=>{
+    filterDispatch({
+      type:"CLEAR_FILTER"
+    })
+   }}>Clear Filter</label>
   </div>
   )
 }
