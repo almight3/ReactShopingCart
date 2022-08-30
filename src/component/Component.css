@@ -83,3 +83,23 @@ input[type=number]::-webkit-outer-spin-button {
     -moz-appearance: none;
     appearance: none; 
 }
+
+.filter-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    padding: 0.5rem 2rem;
+    width: 90vw;
+    margin: 1rem;
+}
+.filter-container span{
+    margin: 0 0.5rem;
+}
+.filter-container span select{
+    margin: 0 0.5rem;
+}
+.filter-container span select:focus{
+    outline: none;
+}
+
+
