@@ -1,10 +1,7 @@
 import React,{ useState,useReducer,useEffect } from 'react'
-import {cartReducer} from '../Reducer/ProductReducer'
+import {cartReducer,filterProduct} from '../Reducer/ProductReducer'
 import axios from 'axios';
-
-
 export const Context = React.createContext();
-
 function ProductContext({children}) {
  
  const [state,cartDispatch] = useReducer(cartReducer,{
@@ -20,6 +17,13 @@ function ProductContext({children}) {
    })
    console.log(productData.data)
  }
+
+ const [filterState,filterDispatch] = useReducer(filterProduct,{
+  sort:'',
+  byCategory:'',
+  byRating:'',
+  bySearchQuery:''
+ })
  useEffect(()=>{
   fetchProduct()
  },[]) 

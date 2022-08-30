@@ -11,8 +11,22 @@ export const cartReducer = (state,action)=>{
             return {...state,cart:state.cart.filter((c)=>c.id==action.payload.id ?(c.qty=action.payload.qty)
                 :c)}        
         default:
-            
             return state;    
-
-    }
+        }
+}
+export const filterProduct = (state,action)=>{
+   switch(action.type){
+   case "SORT_BY_PRICE":{
+    return {...state,sort:action.payload}
+   }
+   case "FILTER_BY_CATEGORY":{
+    return {...state,byCategory:action.payload}
+   }
+   case "FILTER_BY_RATING":{
+    return {...state,byRating:action.payload}
+   }
+   case "FILTER_BY_SEARCHQUERY":{
+     return {...state,bySearchQuery:action.payload}
+   }
+   }
 }
