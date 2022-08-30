@@ -1,6 +1,7 @@
-import React from 'react'
-
+import React,{useContext} from 'react'
+import Context from "../context/ProductContext"
 function FilterProduct() {
+  
   return (
     <div>FilterProduct</div>
   )

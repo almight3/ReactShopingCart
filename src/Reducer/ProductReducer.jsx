@@ -28,5 +28,11 @@ export const filterProduct = (state,action)=>{
    case "FILTER_BY_SEARCHQUERY":{
      return {...state,bySearchQuery:action.payload}
    }
+   case "CLEAR_FILTER":{
+    return {sort:'',
+    byCategory:'',
+    byRating:'',
+    bySearchQuery:''}
+   }
    }
 }
